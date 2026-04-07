@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node / frontend
+apps/desktop/node_modules/
+apps/desktop/dist/
+apps/desktop/.vite/
+apps/desktop/coverage/
+
+# Rust / Tauri
+apps/desktop/src-tauri/target/
+
+# Python / backend
+services/backend/.venv/
+services/backend/.pytest_cache/
+services/backend/.mypy_cache/
+services/backend/.ruff_cache/
+services/backend/**/__pycache__/
+services/backend/**/*.pyc
+
+# Logs
+*.log
+
