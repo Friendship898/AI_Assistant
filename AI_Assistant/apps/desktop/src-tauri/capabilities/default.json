@@ -1,0 +1,7 @@
+{
+  "identifier": "default",
+  "description": "Default desktop capability for Step0 bootstrap.",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}
+

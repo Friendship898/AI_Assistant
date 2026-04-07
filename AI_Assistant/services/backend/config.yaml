@@ -1,0 +1,31 @@
+server:
+  host: "127.0.0.1"
+  port: 8000
+
+routing:
+  default_mode: "auto"
+  force_local_on_sensitive: true
+  enable_hybrid: true
+  long_context_threshold: 6000
+
+local_llm:
+  provider: "ollama"
+  base_url: "http://127.0.0.1:11434"
+  model: "qwen3:14b"
+  timeout_seconds: 60
+
+remote_llm:
+  provider: "openai_compatible"
+  base_url: "https://api.openai.com/v1"
+  model: "gpt-4o-mini"
+  timeout_seconds: 120
+
+storage:
+  sqlite_path: "data/app.db"
+  files_root: "data/files"
+
+security:
+  allow_write_actions: false
+  require_confirmation_for_external_send: true
+  allowed_read_roots: []
+
