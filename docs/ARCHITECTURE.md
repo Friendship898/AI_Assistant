@@ -1,6 +1,6 @@
 # Architecture Overview
 
-## Step4 Scope
+## Step5 Scope
 
 The repository is bootstrapped around a two-process local architecture:
 
@@ -30,5 +30,5 @@ The repository now exposes the first public backend endpoint, keeps contracts as
 - desktop UI rendering of backend and local provider status
 - placeholder module packages for future steps
 
-No chat endpoint, routing execution, tool execution, or persistence behavior is exposed yet beyond the health check and DTO/contract sync path.
+No chat endpoint, routing execution, tool execution, or persistence behavior is exposed yet beyond the health check, DTO/contract sync path, and local provider runtime integration.
 

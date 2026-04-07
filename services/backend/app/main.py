@@ -18,10 +18,10 @@ async def lifespan(app: FastAPI):
         "backend_starting",
         host=settings.api_host,
         port=settings.api_port,
-        step="step0",
+        step="step5",
     )
     yield
-    logger.info("backend_stopping", step="step0")
+    logger.info("backend_stopping", step="step5")
 
 
 def create_app() -> FastAPI:

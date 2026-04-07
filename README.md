@@ -8,7 +8,7 @@ This repository contains the current project skeleton for the AI desktop assista
 - `services/backend`: FastAPI backend shell with `GET /api/v1/health`, chat/session DTO contracts, and a local Hugging Face provider adapter backed by `D:\AI\Models\Qwen3-14B`.
 - `scripts`: local development scripts including OpenAPI export and TypeScript type generation.
 
-The repository now completes Step4 by wiring the backend directly to local Hugging Face weights for runtime health reporting and local generation smoke testing. Chat endpoints, routing behavior, tools, and persistence are still pending.
+The repository now completes Step5 by wiring the backend directly to local Hugging Face weights for runtime health reporting and local generation smoke testing. Chat endpoints, routing behavior, tools, and persistence are still pending.
 
 ## Repository Layout
 
@@ -41,7 +41,7 @@ To refresh generated contract artifacts after backend contract changes:
 ./scripts/generate_ts_types.sh
 ```
 
-To run the current Step4 backend and desktop health flow:
+To run the current Step5 backend and desktop health flow:
 
 ```powershell
 cd D:\GIT\AI_Assistant\services\backend
@@ -63,4 +63,4 @@ To validate one real local generation through the backend provider:
 
 ## Next Recommended Step
 
-Implement Step5: add `/api/v1/chat` on top of the existing local provider layer without introducing remote providers or tools yet.
+Implement Step6: add `/api/v1/chat` on top of the existing local provider layer without introducing remote providers or tools yet.

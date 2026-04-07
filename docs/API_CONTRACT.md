@@ -10,7 +10,7 @@ The first public backend endpoint remains:
 
 Shared chat/session DTOs are now defined even though no public chat endpoint has been added yet.
 
-## Step4
+## Step5
 
 The health payload now includes local provider runtime status under `data.services.local_llm`.
 
@@ -20,7 +20,7 @@ The backend contract source directory is:
 
 - `services/backend/app/contracts/`
 
-Current Step4 state:
+Current Step5 state:
 
 - backend health and common response contracts live under `services/backend/app/contracts/`
 - OpenAPI can be exported to `shared/openapi/openapi.json`
@@ -29,5 +29,5 @@ Current Step4 state:
 - `ProviderHealth` is used for both `backend` and `local_llm` service entries in `/api/v1/health`
 - local provider health can report `healthy`, `degraded`, or `unavailable`
 
-This step adds local provider health reporting only. It does not add `/api/v1/chat`, remote providers, routing behavior, tools, or persistence behavior yet.
+This step adds local provider health reporting and local runtime generation readiness only. It does not add `/api/v1/chat`, remote providers, routing behavior, tools, or persistence behavior yet.
 

@@ -42,11 +42,11 @@ describe("App", () => {
     vi.unstubAllGlobals();
   });
 
-  it("renders the Step4 shell heading and local provider health state", async () => {
+  it("renders the Step5 shell heading and local provider health state", async () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: /AI Desktop Assistant/i })).toBeInTheDocument();
-    expect(screen.getByText(/Step4 \/ Local HF Provider/i)).toBeInTheDocument();
+    expect(screen.getByText(/Step5 \/ Local HF Provider/i)).toBeInTheDocument();
     expect(await screen.findByText(/Backend and local provider status are reported through one health response\./i)).toBeInTheDocument();
     expect(
       screen.getByText(/Loaded local model 'Qwen3-14B' from 'D:\\AI\\Models\\Qwen3-14B'\./i),

@@ -18,7 +18,7 @@ const shellCards = [
   },
   {
     title: "Current Scope",
-    description: "Step 4 only connects the local provider layer. It does not add `/api/v1/chat`, routing, or tool execution.",
+    description: "Step 5 only connects the local provider layer. It does not add `/api/v1/chat`, routing, or tool execution.",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function App() {
   return (
     <main className="app-shell">
       <section className="hero-panel">
-        <p className="eyebrow">Step4 / Local HF Provider</p>
+        <p className="eyebrow">Step5 / Local HF Provider</p>
         <h1>AI Desktop Assistant</h1>
         <p className="hero-copy">
           The desktop shell still reads runtime state from `/api/v1/health`, and that payload now
