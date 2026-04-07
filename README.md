@@ -1,14 +1,14 @@
 # AI Desktop Assistant
 
-This repository contains the Step0 project skeleton for the AI desktop assistant defined in [docs/EXECUTION_MANUAL.md](/C:/Users/Administrator/Desktop/AI_Assistant/docs/EXECUTION_MANUAL.md) and [docs/CODEX_STEPS.md](/C:/Users/Administrator/Desktop/AI_Assistant/docs/CODEX_STEPS.md).
+This repository contains the current project skeleton for the AI desktop assistant defined in `docs/EXECUTION_MANUAL.md` and `docs/CODEX_STEPS.md`.
 
 ## Current Status
 
-- `apps/desktop`: React 18 + TypeScript + Tauri v2 desktop shell scaffold.
-- `services/backend`: FastAPI backend scaffold with config and logging bootstrap.
-- `scripts`: local development entry scripts plus a Step0 structure checker.
+- `apps/desktop`: React 18 + TypeScript + Tauri v2 desktop shell consuming generated backend contract types.
+- `services/backend`: FastAPI backend shell with `GET /api/v1/health`, chat/session DTO contracts, and a local Hugging Face provider adapter backed by `D:\AI\Models\Qwen3-14B`.
+- `scripts`: local development scripts including OpenAPI export and TypeScript type generation.
 
-Step0 intentionally does **not** include health checks, chat, tools, routing rules, or model integration yet.
+The repository now completes Step4 by wiring the backend directly to local Hugging Face weights for runtime health reporting and local generation smoke testing. Chat endpoints, routing behavior, tools, and persistence are still pending.
 
 ## Repository Layout
 
@@ -35,7 +35,32 @@ For a quick structure check in PowerShell:
 powershell -ExecutionPolicy Bypass -File .\scripts\check_structure.ps1
 ```
 
+To refresh generated contract artifacts after backend contract changes:
+
+```bash
+./scripts/generate_ts_types.sh
+```
+
+To run the current Step4 backend and desktop health flow:
+
+```powershell
+cd D:\GIT\AI_Assistant\services\backend
+.\.venv\Scripts\uvicorn.exe app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+```powershell
+cd D:\GIT\AI_Assistant\apps\desktop
+& 'C:\Program Files\nodejs\npm.cmd' run tauri dev
+```
+
+The backend defaults to `local_llm_provider=huggingface_local` and reads the model from `D:\AI\Models\Qwen3-14B`.
+
+To validate one real local generation through the backend provider:
+
+```powershell
+& 'D:\GIT\AI_Assistant\services\backend\.venv\Scripts\python.exe' 'D:\GIT\AI_Assistant\scripts\run_local_qwen_smoke.py' --prompt '请用两句话解释什么是大型语言模型。' --max-new-tokens 80
+```
+
 ## Next Recommended Step
 
-Implement Step1: `GET /api/v1/health` with a unified response wrapper and backend smoke tests.
-
+Implement Step5: add `/api/v1/chat` on top of the existing local provider layer without introducing remote providers or tools yet.

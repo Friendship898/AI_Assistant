@@ -3,6 +3,8 @@
 Thumbs.db
 .idea/
 .vscode/
+.tmp/
+.tmp_*/
 
 # Node / frontend
 apps/desktop/node_modules/
@@ -13,14 +15,31 @@ apps/desktop/coverage/
 # Rust / Tauri
 apps/desktop/src-tauri/target/
 
-# Python / backend
+# Python
 services/backend/.venv/
 services/backend/.pytest_cache/
 services/backend/.mypy_cache/
 services/backend/.ruff_cache/
-services/backend/**/__pycache__/
-services/backend/**/*.pyc
+**/__pycache__/
+**/*.pyc
+
+# Local model assets
+models/
+model/
+checkpoints/
+千问3-14B/
+*.safetensors
+*.gguf
+*.bin
+*.ckpt
+*.pt
+*.pth
+*.onnx
+
+# ML / Hugging Face caches
+.cache/
+.hf/
+huggingface/
 
 # Logs
 *.log
-

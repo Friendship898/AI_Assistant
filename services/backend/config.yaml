@@ -9,9 +9,12 @@ routing:
   long_context_threshold: 6000
 
 local_llm:
-  provider: "ollama"
+  provider: "huggingface_local"
   base_url: "http://127.0.0.1:11434"
-  model: "qwen3:14b"
+  model: "Qwen3-14B"
+  model_path: "D:\\AI\\Models\\Qwen3-14B"
+  dtype: "auto"
+  enable_thinking: false
   timeout_seconds: 60
 
 remote_llm:

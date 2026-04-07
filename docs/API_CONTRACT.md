@@ -1,20 +1,33 @@
 # API Contract Status
 
-## Step0
+## Public Endpoint
 
-Step0 establishes the backend application shell only. No product API endpoints are implemented in this step.
-
-## Reserved Next Contract
-
-Step1 will introduce the first public endpoint:
+The first public backend endpoint remains:
 
 - `GET /api/v1/health`
 
+## Step3
+
+Shared chat/session DTOs are now defined even though no public chat endpoint has been added yet.
+
+## Step4
+
+The health payload now includes local provider runtime status under `data.services.local_llm`.
+
 ## Contract Source of Truth
 
-The future shared contract source directory already exists at:
+The backend contract source directory is:
 
 - `services/backend/app/contracts/`
 
-Step2 will define concrete Pydantic contracts and drive frontend type generation from that source.
+Current Step4 state:
+
+- backend health and common response contracts live under `services/backend/app/contracts/`
+- OpenAPI can be exported to `shared/openapi/openapi.json`
+- frontend TypeScript types are generated from that OpenAPI schema
+- chat/session DTO contracts now include `ContextItem`, `ChatMessage`, `GenerationOptions`, `TokenUsage`, `ChatRequest`, `RouteResult`, and `ChatResponse`
+- `ProviderHealth` is used for both `backend` and `local_llm` service entries in `/api/v1/health`
+- local provider health can report `healthy`, `degraded`, or `unavailable`
+
+This step adds local provider health reporting only. It does not add `/api/v1/chat`, remote providers, routing behavior, tools, or persistence behavior yet.
 
